@@ -1,4 +1,4 @@
-from src.connection import get_json_from_url , get_data_csv
+from src.extract.connection import get_json_from_url , get_data_csv
 import json
 import requests
 import os
