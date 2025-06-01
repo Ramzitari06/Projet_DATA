@@ -31,7 +31,12 @@ def get_data_csv (file_path: str) -> pd.DataFrame:
     
     File_csv =pd.read_csv(file_path,sep=',', encoding='utf-8')
     return File_csv
-'''def load_json(file_path):
-    with open(file_path, 'r') as file:
-        data = file.read()
-    return loads(data)'''
+
+def json_to_dataframe(json_path: str) -> pd.DataFrame:
+    """Charge un fichier JSON et le convertit en DataFrame à l'aide de json_normalize."""
+    with open(json_path, 'r', encoding='utf-8') as f:
+        json_data = json.load(f)
+    
+    df = pd.json_normalize(json_data)
+    return df
+
