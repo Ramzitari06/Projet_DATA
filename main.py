@@ -2,11 +2,15 @@ from src.extract.connection import get_json_from_url , get_data_csv , json_to_da
 import json
 import requests
 import os
+import yaml
+from src.config_load import load_config
 
-file_name="data_routier.json"
-file_path_1 = f"ECO_TRANS/data/raw/{file_name}"
-file_path_2 = f"ECO_TRANS/data/raw/LCD_sample_csv.csv"
+##file_name="data_routier.json"
+##file_path_1 = f"ECO_TRANS/data/raw/{file_name}"
+##file_path_2 = f"ECO_TRANS/data/raw/LCD_sample_csv.csv"
 
+file_config=load_config()
+file_path_1 = file_config['config']['paths']['path1']
 
 ##print(file_path)
 ##print(get_json_from_url("https://data.cityofnewyork.us/resource/i4gi-tjb9.json","ECO_TRANS/data/raw/data_routier.json"))

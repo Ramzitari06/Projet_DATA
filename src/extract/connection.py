@@ -3,6 +3,21 @@ from json import loads
 import json
 import os 
 import requests  
+import pyspark.sql.functions as F
+from pyspark.sql import SparkSession
+
+
+def get_spark_session(app_name: str) -> SparkSession:
+    """
+    Create a Spark session with the specified application name.
+    
+    :param app_name: Name of the Spark application.
+    :return: SparkSession object.
+    """
+    spark = SparkSession.builder \
+        .appName(app_name) \
+        .getOrCreate()
+    return spark
 
 
 def get_json_from_url(url :str,filename:str) -> dict:
@@ -28,6 +43,7 @@ def get_data_csv (file_path: str) -> pd.DataFrame:
     """
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"The file {file_path} does not exist.")
+    # Read the CSV file into a DataFrame
     
     File_csv =pd.read_csv(file_path,sep=',', encoding='utf-8')
     return File_csv

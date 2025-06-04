@@ -1,0 +1,45 @@
+config:
+  # General settings
+  general:
+    app_name: "EcoTransData"
+    app_version: "1.0.0"
+    log_level: "INFO"
+    log_file: "app.log"
+    max_retries: 3
+    retry_delay: 5  # seconds
+    timeout: 30  # seconds
+    enable_feature_x: true
+    enable_feature_y: false
+    enable_feature_z: true
+    default_language: "en"
+    supported_languages: ["en", "es", "fr", "de"]
+    timezone: "UTC"
+    date_format: "YYYY-MM-DD"
+
+  # Database settings
+  database:
+    db_type: "postgresql"
+    db_host: "localhost"
+    db_port: 5432
+    db_name: "DB_1"
+    db_user: "user"
+    db_password: "password"
+  
+  # Paths
+  paths:
+    raw_data_path: "/data/raw"
+    processed_data_path: "/data/processed" 
+    logs_path: "/data/logs"
+    path1: "ECO_TRANS/data/raw/data_routier.json"
+    path2: "ECO_TRANS/data/raw/LCD_sample_csv.csv"  
+
+  # API settings
+  api:
+    traffic:
+      url: "https://data.cityofnewyork.us/resource/i4gi-tjb9.json"
+    air_quality:
+      url: "https://example.com/air_quality.json"
+    meteo_csv:
+      url: "https://www.ncei.noaa.gov/data/local-climatological-data/"
+    transport_excel:
+      url: "https://data.iledefrance-mobilites.fr/"
